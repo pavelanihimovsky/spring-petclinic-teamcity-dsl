@@ -52,6 +52,10 @@ object Build : BuildType({
             groupCheckinsByCommitter = true
         }
     }
+    features {
+        swabra {
+        }
+    }
 })
 
 object PetclinicVcs : GitVcsRoot({
