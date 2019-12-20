@@ -31,7 +31,7 @@ version = "2018.2"
 
 project {
     vcsRoot(PetclinicVcs)
-    buildType(Build)
+    buildType(cleanFiles(Build))
 }
 
 object Build : BuildType({
@@ -52,10 +52,6 @@ object Build : BuildType({
             groupCheckinsByCommitter = true
         }
     }
-    features {
-        swabra {
-        }
-    }
 })
 
 object PetclinicVcs : GitVcsRoot({
@@ -63,6 +59,13 @@ object PetclinicVcs : GitVcsRoot({
     url = "https://github.com/spring-projects/spring-petclinic.git"
 })
 
+fun cleanFiles(buildType: BuildType): BuildType {
+    buildType.features {
+        swabra {
+        }
+    }
+    return buildType
+}
 
 fun wrapWithFeature(buildType: BuildType, featureBlock: BuildFeatures.() -> Unit): BuildType {
     buildType.features {
