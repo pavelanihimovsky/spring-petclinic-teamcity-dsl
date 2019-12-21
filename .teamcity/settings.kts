@@ -39,8 +39,8 @@ project {
             build(Test2) {
             }
         }
-        build(Build) {
-        }
+        /*build(Build) {
+        }*/
     }
     /*vcsRoot(PetclinicVcs)
     buildType(cleanFiles(Build))*/
