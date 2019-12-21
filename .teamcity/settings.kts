@@ -34,9 +34,9 @@ project {
 
     sequence {
         parallel {
-            build(Test) {
+            build(Test1) {
             }
-            build(Test) {
+            build(Test2) {
             }
         }
         build(Build) {
@@ -46,8 +46,21 @@ project {
     buildType(cleanFiles(Build))*/
 }
 
-object Test : BuildType({
-    name = "Test"
+object Test1 : BuildType({
+    name = "Test1"
+
+    vcs {
+        root(PetclinicVcs)
+    }
+    steps {
+        maven {
+            goals = "clean test"
+        }
+    }
+})
+
+object Test2 : BuildType({
+    name = "Test2"
 
     vcs {
         root(PetclinicVcs)
