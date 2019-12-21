@@ -30,8 +30,12 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2018.2"
 
 project {
-    vcsRoot(PetclinicVcs)
-    buildType(cleanFiles(Build))
+    sequence {
+        build(Build) {
+        }
+    }
+    /*vcsRoot(PetclinicVcs)
+    buildType(cleanFiles(Build))*/
 }
 
 object Build : BuildType({
