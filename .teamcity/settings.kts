@@ -31,8 +31,14 @@ version = "2018.2"
 
 project {
     vcsRoot(PetclinicVcs)
-    
+
     sequence {
+        parallel {
+            build(Test) {
+            }
+            build(Test) {
+            }
+        }
         build(Build) {
         }
     }
@@ -40,15 +46,29 @@ project {
     buildType(cleanFiles(Build))*/
 }
 
-object Build : BuildType({
-    name = "Build"
+object Test : BuildType({
+    name = "Test"
 
     vcs {
         root(PetclinicVcs)
     }
     steps {
         maven {
-            goals = "clean package"
+            goals = "clean test"
+        }
+    }
+})
+
+object Build : BuildType({
+    name = "Build"
+    artifactRules = "target/*jar"
+
+    vcs {
+        root(PetclinicVcs)
+    }
+    steps {
+        maven {
+            goals = "package"
         }
     }
     triggers {
