@@ -1,4 +1,3 @@
-import _Root.Root
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.Swabra
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.swabra
@@ -30,9 +29,7 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 
 version = "2018.2"
 
-project(Root)
-
-/*project {
+project {
     vcsRoot(PetclinicVcs)
 
     sequence {
@@ -42,12 +39,8 @@ project(Root)
             build(Test2) {
             }
         }
-        /*build(Build) {
-        }*/
     }
-    /*vcsRoot(PetclinicVcs)
-    buildType(cleanFiles(Build))*/
-}*/
+}
 
 object Test1 : BuildType({
     name = "Test1"
