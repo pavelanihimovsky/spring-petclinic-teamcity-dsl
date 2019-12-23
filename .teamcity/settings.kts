@@ -33,6 +33,7 @@ project {
     vcsRoot(PetclinicVcs)
 
     sequence {
+        build(Clean) {  }
         parallel {
             build(Test1) {
             }
@@ -41,6 +42,19 @@ project {
         }
     }
 }
+
+object Clean : BuildType({
+    name = "Test1"
+
+    vcs {
+        root(PetclinicVcs)
+    }
+    steps {
+        maven {
+            goals = "clean"
+        }
+    }
+})
 
 object Test1 : BuildType({
     name = "Test1"
