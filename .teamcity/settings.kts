@@ -44,7 +44,7 @@ project {
 }
 
 object Clean : BuildType({
-    name = "Test1"
+    name = "Clean"
 
     vcs {
         root(PetclinicVcs)
