@@ -33,18 +33,18 @@ project {
     vcsRoot(PetclinicVcs)
 
     sequence {
-        build(Clean) {  }
         parallel {
             build(Test1) {
             }
             build(Test2) {
             }
         }
+        build(Run) {  }
     }
 }
 
-object Clean : BuildType({
-    name = "Clean"
+object Run : BuildType({
+    name = "Run"
 
     vcs {
         root(PetclinicVcs)
